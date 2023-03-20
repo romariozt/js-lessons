@@ -267,6 +267,11 @@ animation-delay: -5s !important;
   /* max-width: 100%; */
   /* padding-top: 20px; */
 }
+.text__script span,
+.script__table-text span {
+    text-transform: uppercase;
+    font-weight: bold;
+}
 .text__script .table__script,
 .text__script .table__script-title {
   border: 5px solid #410ece;

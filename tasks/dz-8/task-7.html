@@ -1,0 +1,74 @@
+<!-- mariozt -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>JS-ADD-Task-7</title>
+  </head>
+
+  <body>
+    
+    <section class="wrapper">
+      <div class="container__dz">
+        <h3 class="subtitle title__task">Задача №7</h3>
+        <pre class="text__task">
+           Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+                1) за весь рік;
+                2) у першій половині року;
+                3) у другій половині року;
+                4) за літо;
+                5) за ІІ квартал;
+                6) за парні місяці (з парними номерами);
+                7) за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+        </pre>
+      
+        <!-- !--------------------------Script Start----------------------- -->
+        <script>
+        
+          // -------------------------  Введення масиву  ------------------//
+          const payList = [256, 313, 190, 300, 420, 680, 411, 390, 555, 600, 180, 333]
+
+          // -------------------------  Рішення  ------------------//
+          const sumYear = payList.reduce((result, element) => result += element)
+          const firstHalfYear = payList.slice(0, 6).reduce((result, element) => result += element) // 2159
+          const secondHalfYear = payList.slice(6).reduce((result, element) => result += element) // 2469 (payList.slice(6,12))
+          const summerYear = payList.slice(5, 8).reduce((result, element) => result += element) // 1481
+          const secondQuarte = payList.slice(4, 7).reduce((result, element) => result += element) // 1511
+          const doubleMonth = payList.filter((element, index) => [index+1] % 2 === 0).reduce((result, element) => result += element) // 2616
+          const firstMonthSeason = payList.filter((element, index) => index === 2 || index === 5 || index === 8 || index === 11).reduce((result, element) => result += element) // 1758
+          
+
+          // -------------------------  Виведення результату  ------------------//
+          console.log(`Сумарна кількість грошей за весь рік = ${sumYear}`)
+          console.log(`Сумарна кількість грошей у першій половині року = ${firstHalfYear}`)
+          console.log(`Сумарна кількість грошей у другій половині року = ${secondHalfYear}`)
+          console.log(`Сумарна кількість грошей за літо = ${summerYear}`)
+          console.log(`Сумарна кількість грошей за ІІ квартал = ${secondQuarte}`)
+          console.log(`Сумарна кількість грошей за парні місяці (з парними номерами) = ${doubleMonth}`)
+          console.log(`Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима) = ${firstMonthSeason}`)
+
+        </script>
+        <!-- !--------------------------Script End----------------------- -->
+        
+      </div>
+    </section>
+
+  </body>
+</html>

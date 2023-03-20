@@ -1,0 +1,64 @@
+<!-- mariozt -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>JS-DZ-Task-2</title>
+  </head>
+
+  <body>
+    
+    <section class="wrapper">
+      <div class="container__dz">
+        <h3 class="subtitle title__task">Задача №2</h3>
+        <p class="text__task">
+         Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 
+         1-цями, а друга заповнена 7-ками.
+        </p>
+      
+        <!-- !--------------------------Script Start----------------------- -->
+        <script>
+
+          let  userNum = prompt('Введіть кількість елементів массиву')
+          let arr = [userNum]
+
+          for (let i = 0; i < userNum; i++) {
+            if (i < userNum / 2) {
+              arr[i] = 1
+            } else {
+              arr[i] = 7
+            }
+          }
+
+          console.log(arr)
+          document.write (`
+                <div class="script__table-text">
+                  Кількість елементів масиву - <span>${userNum}  [${arr}]</span>
+                </div>
+                `)
+
+        </script>
+        <!-- !--------------------------Script End----------------------- -->
+        
+      </div>
+    </section>
+
+  </body>
+</html>

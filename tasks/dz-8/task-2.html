@@ -1,0 +1,100 @@
+<!-- mariozt -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>JS-DZ-Task-2</title>
+  </head>
+
+  <body>
+    
+    <section class="wrapper">
+      <div class="container__dz">
+        <h3 class="subtitle title__task">Задача №2</h3>
+        <pre class="text__task">
+          Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. 
+          Вивести на екран: 
+          • номери днів, протягом яких кількість відвідувачів була меншою за 20; 
+          • номери днів, коли кількість відвідувачів була мінімальною; 
+          • номери днів, коли кількість відвідувачів була максимальною; 
+          • загальну кількість клієнтів у робочі дні та окремо загальну кількість клієнтів на вихідних.
+        </pre>
+      
+        <!-- !--------------------------Script Start----------------------- -->
+        <script>
+
+          // -------------------     Введення массиву   --------------//
+          const visitors = [25, 33, 15, 42, 51, 68, 80]; // відвідувачі за кожен день тижня (7 днів)
+
+          let min = Math.min(...visitors)
+          let max = Math.max(...visitors)
+
+          // ------------   Номери днів, протягом яких кількість відвідувачів була меншою за 20   -----------//
+          console.log(`Дні, протягом яких кількість відвідувачів була меншою за 20:`);
+          for (let i = 0; i < visitors.length; i++) {
+            if (visitors[i] < 20)
+            console.log(i + 1);
+          }
+
+          // ------------   Номери днів, коли кількість відвідувачів була мінімальною  -----------//
+          console.log(`День, коли кількість відвідувачів була мінімальною:`);
+          for (let i = 0; i < visitors.length; i++) {
+            if (visitors[i] === min) console.log(i + 1) // мінімальне значення
+          }
+
+          // ------------   Номери днів, коли кількість відвідувачів була максимальною  -----------//
+          console.log(`День, коли кількість відвідувачів була максимальною:`);
+          for (let i = 0; i < visitors.length; i++) {
+            if (visitors[i] === max) console.log(i + 1) // максимальне значення
+          }
+
+          // ------------   Загальна кількість клієнтів у робочі дні та загальна кількість клієнтів на вихідних  -----------//
+          let workingDays = visitors.slice(0, 5);
+          let weekendDays = visitors.slice(5, 7);
+
+          let totalWorkDay = 0
+          let totalWeekendDay = 0
+
+          for (let i = 0; i < workingDays.length; i++) {
+            totalWorkDay += workingDays[i];
+          }
+
+          for (let i = 0; i < weekendDays.length; i++) {
+            totalWeekendDay += weekendDays[i];
+          }
+
+          console.log(`Загальна кількість клієнтів у робочі дні: ${totalWorkDay}`);
+          console.log(`Загальна кількість клієнтів на вихідних: ${totalWeekendDay}`);
+
+
+
+
+
+
+
+
+        </script>
+        <!-- !--------------------------Script End----------------------- -->
+        
+      </div>
+    </section>
+
+  </body>
+</html>

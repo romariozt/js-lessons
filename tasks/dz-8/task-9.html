@@ -1,0 +1,84 @@
+<!-- mariozt -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>JS-DZ-Task-9</title>
+  </head>
+
+  <body>
+    
+    <section class="wrapper">
+      <div class="container__dz">
+        <h3 class="subtitle title__task">Задача №9</h3>
+        <p class="text__task">
+          Морський бій. Користувач вводить кількість клітинок одновимірного масиву 
+          та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні 
+          кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, 
+          якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, 
+          куди стріляє. Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+        </p>
+
+        <div>
+          <!-- !--------------------------Script Start----------------------- -->
+          <script>
+
+            // -------------------------  Введення масиву  ------------------//
+            let sizeArr = prompt("Введіть кількість клітинок у масиві:")
+            let numShips = prompt("Введіть кількість кораблів:")
+
+            let ships = [];
+            for (var i = 0; i < numShips; i++) {
+              let ship = Math.floor(Math.random() * sizeArr)
+              while (ships.includes(ship)) {
+                ship = Math.floor(Math.random() * sizeArr)
+              }
+              ships.push(ship)
+            }
+
+            // -------------------------  Рішення  ------------------//
+            let hits = 0;
+            while (hits < numShips) {
+              let guess = prompt("Введіть номер клітинки, куди ви стріляєте (від 0 до " + (sizeArr - 1) + "):")
+              if (guess < 0 || guess >= sizeArr) {
+                alert("Введено невірне значення! Спробуйте ще раз.")
+              } else {
+                if (ships.includes(parseInt(guess))) {
+                  alert("Потоплено!")
+                  hits++
+                  ships.splice(ships.indexOf(parseInt(guess)), 1)
+                } else {
+                  alert("Промах!")
+                }
+              }
+            }
+
+            // -------------------------  Виведення результату  ------------------//
+            alert("Ура! Усі кораблі потоплені!")
+
+          </script>
+          <!-- !--------------------------Script End----------------------- -->
+        </div>
+
+      </div>
+    </section>
+
+  </body>
+</html>
